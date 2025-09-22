@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alibaba.com Prototype - B2B Marketplace</title>
+
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    body {
+      background: url('https://as1.ftcdn.net/v2/jpg/02/84/32/52/1000_F_284325273_ei2pxwlAyg4ghLOBINFPiF1LVubbfLpA.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(255, 255, 255, 0.3);
+      z-index: -1;
+    }
+
+    .header-top{background:#fff;border-bottom:1px solid #e0e0e0;}
+    .logo{height:80px;}
+
+    .search-bar input{border-right:0;border-radius:2rem 0 0 2rem;}
+    .search-bar button{background:#FF6600;color:#fff;border-radius:0 2rem 2rem 0;border-color:#FF6600;}
+    .search-bar button:hover{background:#e65c00;border-color:#e65c00;}
+
+    .header-actions .nav-link{color:#333;font-size:.9rem;display:flex;flex-direction:column;align-items:center;}
+    .header-actions .nav-link i{font-size:1.2rem;}
+
+    .main-nav{background:#fff;border-bottom:2px solid #FF6600;}
+    .main-nav .nav-link{color:#333;font-weight:500;padding:.75rem 1rem;}
+    .main-nav .nav-link:hover,
+    .main-nav .nav-link.active{color:#FF6600;font-weight:bold;}
+
+    .hero-section{
+      background:url('https://s.alicdn.com/@img/imgextra/i4/O1CN01fTNSB51v9sv9fKxN9_!!6000000006132-0-tps-990-400.jpg')
+      center/cover; height:350px; border-radius:.5rem;
+    }
+
+    .product-card{background:#fff;border:1px solid #e0e0e0;border-radius:.5rem;overflow:hidden;
+      transition:box-shadow .3s;display:flex;flex-direction:column;height:100%;}
+    .product-card:hover{box-shadow:0 4px 12px rgba(0,0,0,.1);}
+    .product-card img{width:100%;height:200px;object-fit:cover;}
+    .product-card .card-title{font-size:1rem;font-weight:600;color:#333;display:-webkit-box;
+      -webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+    .price{font-size:1.1rem;font-weight:bold;color:#222;}
+    .min-order{font-size:.85rem;color:#666;}
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header-top py-2">
+  <div class="container d-flex align-items-center justify-content-between">
+    <a href="#"><img src="my project/images/alibaba.png.png" class="logo" alt="Alibaba Logo"></a>
+
+    <div class="search-bar flex-grow-1 mx-4 input-group">
+      <input type="text" class="form-control" placeholder="What are you looking for...">
+      <button class="btn"><i class="fas fa-search"></i> Search</button>
+    </div>
+
+    <nav class="header-actions d-flex align-items-center">
+      <a class="nav-link me-3" href="#"><i class="far fa-comment-dots"></i><span>Messages</span></a>
+      <a class="nav-link me-3" href="#"><i class="far fa-file-alt"></i><span>Orders</span></a>
+      <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i><span>Cart</span></a>
+    </nav>
+  </div>
+</header>
+
+<!-- Navigation -->
+<nav class="main-nav shadow-sm">
+  <div class="container d-flex">
+    <a class="nav-link active" href="#"><i class="fas fa-bars me-2"></i>Categories</a>
+    <a class="nav-link" href="#">Ready to Ship</a>
+    <a class="nav-link" href="#">Trade Shows</a>
+    <a class="nav-link" href="#">Buyer Central</a>
+    <a class="nav-link" href="#">Sell on Alibaba</a>
+  </div>
+</nav>
+
+<!-- Main -->
+<main class="container mt-4">
+  <section class="hero-section mb-4"></section>
+
+  <section>
+    <h2 class="fw-bold mb-3">Just For You</h2>
+    <div id="product-grid" class="row g-3"></div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-white text-center mt-5 border-top">
+  <div class="container p-4">© 2025 Alibaba.com Prototype - For Demonstration Purposes Only.</div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const products = [
+    {title:"High Quality Custom Logo T-shirt 100% Cotton Men's T-Shirts",price:"US$2.90 - US$5.50",minOrder:"10 pieces",imageUrl:"https://s.alicdn.com/@sc04/kf/H32b928d97d37481dbba2b9cc5d8dc32bM.png?avif=close&webp=close.jpg"},
+    {title:"New Design Smart Watch with Heart Rate Monitor and Blood Oxygen",price:"US$8.50 - US$12.00",minOrder:"5 pieces",imageUrl:"https://s.alicdn.com/@sc04/kf/H1d58adb0464a40f1bc1a69aad8ca7e998.png?avif=close&webp=close.jpg"},
+    {title:"Professional Wireless Earbuds TWS Bluetooth 5.3 Headphones",price:"US$4.20 - US$7.80",minOrder:"20 pieces",imageUrl:"https://s.alicdn.com/@sc04/kf/H7046d354a0084b188d65cdea6d92755aC.jpg?avif=close&webp=close.jpg"},
+    {title:"Durable Canvas Tote Bag with Custom Logo Printing for Shopping",price:"US$1.50 - US$3.00",minOrder:"100 pieces",imageUrl:"https://s.alicdn.com/@sc04/kf/H5e81ccca7b72421086d21d9671f485e2C.jpg?avif=close&webp=close.jpg"},
+    {title:"Portable Power Bank 20000mAh with Fast Charging Technology",price:"US$9.00 - US$15.50",minOrder:"10 pieces",imageUrl:"https://s.alicdn.com/@sc04/kf/H2479284b74164b2dab991236f0f4f4c11.jpg?avif=close&webp=close.jpg"},
+    {title:"Modern LED Desk Lamp with Adjustable Brightness and Color Temp",price:"US$6.80 - US$11.20",minOrder:"15 pieces",imageUrl:"https://s.alicdn.com/@sc04/kf/H741bce75a19d4aadb292dddc0db1d364U.jpg?avif=close&webp=close.jpg"},
+    {title:"High-Speed USB 3.0 Flash Drive 128GB Metal Casing",price:"US$3.50 - US$6.00",minOrder:"50 pieces",imageUrl:"https://s.alicdn.com/@sc04/kf/Hc7ff01aaf01c4d6da2b8d2fe16518baaW.jpg?avif=close&webp=close.jpg"},
+    {title:"Electric Toothbrush with 5 Brushing Modes and Smart Timer",price:"US$12.00 - US$18.50",minOrder:"5 pieces",imageUrl:"https://s.alicdn.com/@sc04/kf/H49152dcfe2114941a0601dde77383bcfI.jpg?avif=close&webp=close.jpg"}
+  ];
+
+  const grid = document.getElementById('product-grid');
+  products.forEach(p => {
+    grid.innerHTML += `
+      <div class="col-6 col-md-4 col-lg-3 mb-3">
+        <div class="product-card">
+          <a href="#" class="text-decoration-none">
+            <img src="${p.imageUrl}" alt="${p.title}">
+            <div class="card-body p-3 d-flex flex-column">
+              <h3 class="card-title">${p.title}</h3>
+              <div class="mt-auto">
+                <p class="price mb-1">${p.price}</p>
+                <p class="min-order mb-0">${p.minOrder} (Min. Order)</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>`;
+  });
+});
+</script>
+</body>
+</html>
